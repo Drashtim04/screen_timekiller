@@ -1,0 +1,25 @@
+{
+  "name": "deepwork-ai",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "npx concurrently -c \"blue,green,magenta,yellow\" -n \"api,dashboard,ext,shared\" \"npm run dev -w @deepwork/api\" \"npm run dev -w @deepwork/dashboard\" \"npm run dev -w @deepwork/extension\" \"npm run dev -w @deepwork/shared\"",
+    "build": "npm run build --workspaces --if-present",
+    "lint": "npm run lint --workspaces --if-present",
+    "clean": "npm run clean --workspaces --if-present"
+  },
+  "devDependencies": {
+    "@deepwork/eslint-config": "*",
+    "@deepwork/tsconfig": "*",
+    "eslint": "^8.0.0",
+    "prettier": "^3.0.0",
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "sharp": "^0.34.5"
+  }
+}
